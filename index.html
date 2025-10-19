@@ -1,10 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/emojiIco.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>matheus-marques-site</title>
+    <meta name="theme-color" content="#ffffff" />
+    <title>Matheus Marques - Frontend Developer</title>
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          // Atualiza meta theme-color para modo dark
+          const metaTheme = document.querySelector('meta[name="theme-color"]');
+          if (metaTheme) {
+            metaTheme.setAttribute('content', '#1C1C1C');
+          }
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+          // Atualiza meta theme-color para modo light
+          const metaTheme = document.querySelector('meta[name="theme-color"]');
+          if (metaTheme) {
+            metaTheme.setAttribute('content', '#ffffff');
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

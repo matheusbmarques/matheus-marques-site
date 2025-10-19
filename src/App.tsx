@@ -57,16 +57,23 @@ function App() {
               Installing dependencies...
             </AnimatedSpan>
             <TerminalTyping className='text-typing'>_Olá,</TerminalTyping>
-            <TerminalTyping className="text break-words whitespace-normal">✔ me chamo Matheus Marques e sou desenvolvedor frontend</TerminalTyping>
+            <AnimatedSpan className="text break-words whitespace-normal">✔ me chamo Matheus Marques e sou desenvolvedor frontend</AnimatedSpan>
 
-            <TerminalTyping className="text break-words whitespace-normal">✔ transformar ideias em interfaces bonitas, rápidas e fáceis de usar.</TerminalTyping>
+            <AnimatedSpan className="text break-words whitespace-normal">✔ transformar ideias em interfaces bonitas, rápidas e fáceis de usar.</AnimatedSpan>
 
-            <TerminalTyping className="text break-words whitespace-normal">✔ Unifico código e design para criar experiências que realmente fazem sentido para o usuário.</TerminalTyping>
+            <AnimatedSpan className="text break-words whitespace-normal">✔ Unifico código e design para criar experiências que realmente fazem sentido para o usuário.</AnimatedSpan>
 
-            <AnimatedShinyText className="whatsapp-contact">
-              <WhatsAppIcon className="inline-block w-4 h-4 mr-2" />
-              entre em contato
-            </AnimatedShinyText>
+            <a 
+              href="https://wa.me/5521999592416?text=Olá%20Matheus!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="whatsapp-link"
+            >
+              <AnimatedShinyText className="whatsapp-contact">
+                <WhatsAppIcon className="inline-block w-4 h-4 mr-2" />
+                entre em contato
+              </AnimatedShinyText>
+            </a>
 
           </Terminal>
         </div>

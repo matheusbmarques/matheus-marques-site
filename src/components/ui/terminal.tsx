@@ -286,9 +286,15 @@ export const Terminal = ({
           <Dock className="social-dock">
             <Tooltip>
               <TooltipTrigger asChild>
-                <DockIcon className="dock-icon">
-                  <InstagramIcon className="w-4 h-4" />
-                </DockIcon>
+                <a 
+                  href="https://instagram.com/mttmarques" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <DockIcon className="dock-icon">
+                    <InstagramIcon className="w-4 h-4" />
+                  </DockIcon>
+                </a>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Instagram</p>
@@ -296,9 +302,15 @@ export const Terminal = ({
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <DockIcon className="dock-icon">
-                  <LinkedInIcon className="w-4 h-4" />
-                </DockIcon>
+                <a 
+                  href="https://linkedin.com/in/matheusbmarquesg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <DockIcon className="dock-icon">
+                    <LinkedInIcon className="w-4 h-4" />
+                  </DockIcon>
+                </a>
               </TooltipTrigger>
               <TooltipContent>
                 <p>LinkedIn</p>
@@ -306,9 +318,15 @@ export const Terminal = ({
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <DockIcon className="dock-icon">
-                  <GitHubIcon className="w-4 h-4" />
-                </DockIcon>
+                <a 
+                  href="https://github.com/matheusbmarques" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <DockIcon className="dock-icon">
+                    <GitHubIcon className="w-4 h-4" />
+                  </DockIcon>
+                </a>
               </TooltipTrigger>
               <TooltipContent>
                 <p>GitHub</p>

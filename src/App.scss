@@ -167,6 +167,15 @@ $dark-primary-color: #4D4DFF;
 }
 
 // WhatsApp Contact Button Styles
+.whatsapp-link {
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .whatsapp-contact {
   width: 100%;
   margin-top: 1rem;

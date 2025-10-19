@@ -14,15 +14,37 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }: AnimatedThemeTogglerProps) => {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(() => {
+    // Verifica localStorage na inicialização
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme')
+      return saved === 'dark'
+    }
+    return false
+  })
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"))
+    // Aplica o tema salvo na inicialização
+    const savedTheme = localStorage.getItem('theme')
+    const shouldBeDark = savedTheme === 'dark'
+    
+    // Aplica o tema ao documento
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark')
+      document.documentElement.classList.remove('light')
+    } else {
+      document.documentElement.classList.add('light')
+      document.documentElement.classList.remove('dark')
     }
+    
+    setIsDark(shouldBeDark)
 
-    updateTheme()
+    // Observer para mudanças no documento (caso algo externo mude)
+    const updateTheme = () => {
+      const currentIsDark = document.documentElement.classList.contains("dark")
+      setIsDark(currentIsDark)
+    }
 
     const observer = new MutationObserver(updateTheme)
     observer.observe(document.documentElement, {
