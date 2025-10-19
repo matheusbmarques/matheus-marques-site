@@ -1,0 +1,212 @@
+// Variáveis do Terminal
+$terminal-border-radius: 12px;
+$terminal-min-height: 320px;
+$terminal-padding: 25px;
+$terminal-header-padding: 1rem;
+$terminal-border-color: hsl(var(--border));
+$terminal-bg-color: hsl(var(--background));
+
+// Cores dos botões do macOS
+$macos-red: #ef4444;
+$macos-yellow: #eab308;
+$macos-green: #22c55e;
+
+// Tamanhos dos botões
+$button-size: 8px;
+$button-gap: 8px;
+
+// Estilos de texto
+$text-size: 0.875rem; // text-sm
+$text-weight: 400; // font-normal
+$text-tracking: -0.025em; // tracking-tight
+
+$primary-color: #5A4FCF;
+$dark-primary-color: #4D4DFF;
+$transition-duration: 300ms;
+
+// Gradiente personalizado
+$custom-gradient: linear-gradient(
+  90deg,
+  rgba(2, 0, 36, 1) 0%,
+  rgba(9, 9, 121, 1) 35%,
+  rgba(0, 212, 255, 1) 100%
+);
+
+// Mixins
+@mixin terminal-container {
+  border: 1px solid $terminal-border-color;
+  background-color: $terminal-bg-color;
+  z-index: 0;
+  height: 100%;
+  min-height: $terminal-min-height;
+  width: 100%;
+  max-width: 100%;
+  border-radius: $terminal-border-radius;
+}
+
+@mixin terminal-header {
+  border-color: $terminal-border-color;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px solid $terminal-border-color;
+  padding: $terminal-header-padding;
+}
+
+@mixin macos-button($color) {
+  height: $button-size;
+  width: $button-size;
+  border-radius: 50%;
+  background-color: $color;
+}
+
+@mixin terminal-content {
+  padding: $terminal-padding;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@mixin terminal-code {
+  display: grid;
+  gap: 0.25rem 0;
+  overflow: auto;
+  width: 80%;
+}
+
+@mixin terminal-text {
+  font-size: $text-size;
+  font-weight: $text-weight;
+  letter-spacing: $text-tracking;
+}
+
+@mixin gradient-circle {
+  background: $custom-gradient;
+  height: 80px;
+  width: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+// Classes principais
+.terminal {
+  &__container {
+    @include terminal-container;
+  }
+
+  &__header {
+    @include terminal-header;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: $button-gap;
+  }
+
+  &__button {
+    &--red {
+      @include macos-button($macos-red);
+    }
+
+    &--yellow {
+      @include macos-button($macos-yellow);
+    }
+
+    &--green {
+      @include macos-button($macos-green);
+    }
+  }
+
+  &__content {
+    @include terminal-content;
+  }
+
+  &__code {
+    @include terminal-code;
+  }
+
+  &__gradient-circle {
+    @include gradient-circle;
+    animation: terminal-glow 2s ease-in-out infinite;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+// Classes para componentes filhos
+.animated-span {
+  @include terminal-text;
+  display: grid;
+}
+
+.typing-animation {
+  @include terminal-text;
+}
+
+// Animações personalizadas
+@keyframes terminal-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .terminal {
+    &__container {
+      min-height: 300px;
+      border-radius: 8px;
+    }
+
+    &__content {
+      padding: 0.75rem;
+    }
+
+    &__gradient-circle {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  .terminal__container {
+    border-color: hsl(var(--border));
+    background-color: hsl(var(--background));
+  }
+}
+
+// Social Dock Styles
+.social-dock {
+    position: relative;
+    left: -25px;
+    bottom: 10px;
+    
+  .dock-icon {
+    transition: all $transition-duration ease;
+    
+    &:hover {
+      color: $primary-color;
+    }
+    
+    .dark & {
+      &:hover {
+        color: $dark-primary-color;
+      }
+    }
+  }
+}
