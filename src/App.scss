@@ -95,10 +95,6 @@ $dark-primary-color: #4D4DFF;
   }
 }
 
-.theme-transition {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
 .npm-loading {
   display: inline-grid;
   grid-template-columns: repeat(3, 1fr);
@@ -174,24 +170,32 @@ $dark-primary-color: #4D4DFF;
   &:hover {
     text-decoration: none;
   }
+
+  .whatsapp-contact {
+    width: 100%;
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color $transition-duration ease;
+    
+    &:hover {
+      color: $primary-color;
+    }
+    
+    .dark & {
+      &:hover {
+        color: $dark-primary-color;
+      }
+    }
+  }
 }
 
-.whatsapp-contact {
-  width: 100%;
-  margin-top: 1rem;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  transition: color $transition-duration ease;
-  
-  &:hover {
-    color: $primary-color;
-  }
-  
-  .dark & {
-    &:hover {
-      color: $dark-primary-color;
-    }
+
+@media (max-width: 768px) {
+  .terminal_content {
+    max-width: 100%;
+    padding: 0 20px;
   }
 }
 

@@ -31,7 +31,7 @@ function App() {
 
 
   return (
-    <div className="max-h-screen bg-background flex flex-col items-center justify-center overflow-hidden">
+    <div className="content max-h-screen bg-background flex flex-col items-center justify-center overflow-hidden">
       <MemoizedGridPattern />
 
       <div className="flex flex-col items-center justify-center space-y-5">
