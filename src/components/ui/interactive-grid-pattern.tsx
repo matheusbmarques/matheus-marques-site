@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -28,13 +28,35 @@ interface InteractiveGridPatternProps extends React.SVGProps<SVGSVGElement> {
 export function InteractiveGridPattern({
   width = 40,
   height = 40,
-  squares = [24, 24],
+  squares,
   className,
   squaresClassName,
   ...props
 }: InteractiveGridPatternProps) {
-  const [horizontal, vertical] = squares
   const [hoveredSquare, setHoveredSquare] = useState<number | null>(null)
+  const [gridSize, setGridSize] = useState<[number, number]>(squares || [48, 48])
+
+  useEffect(() => {
+    if (squares) return // Se squares foi fornecido, não calcular dinamicamente
+
+    const calculateGridSize = () => {
+      const screenWidth = window.innerWidth
+      const screenHeight = window.innerHeight
+      
+      // Calcula quantos quadrados cabem na tela
+      const horizontalSquares = Math.ceil(screenWidth / width) + 1
+      const verticalSquares = Math.ceil(screenHeight / height) + 1
+      
+      setGridSize([horizontalSquares, verticalSquares])
+    }
+
+    calculateGridSize()
+    window.addEventListener('resize', calculateGridSize)
+    
+    return () => window.removeEventListener('resize', calculateGridSize)
+  }, [width, height, squares])
+
+  const [horizontal, vertical] = gridSize
 
   return (
     <svg

@@ -21,7 +21,6 @@ const MemoizedGridPattern = React.memo(() => (
   <InteractiveGridPattern
     width={60}
     height={60}
-    squares={[22, 20]}
     className="absolute inset-0 z-0 opacity-20 interactive-grid-pattern"
     squaresClassName="transition-none"
   />
@@ -78,7 +77,6 @@ function App() {
           </Terminal>
         </div>
 
-        {/* footer */}
         <div className="footer">
           <p className="text-footer">desenvolvido por Matheus Marques</p>
         </div>
