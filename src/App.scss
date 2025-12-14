@@ -79,6 +79,10 @@ $dark-primary-color: #4D4DFF;
   color: $text-white;
   transition: all $transition-duration ease;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   .text-footer {
     font-family: 'Geist', sans-serif;
     margin: 0;

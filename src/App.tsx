@@ -30,7 +30,7 @@ function App() {
 
 
   return (
-    <div className="content max-h-screen bg-background flex flex-col items-center justify-center overflow-hidden">
+    <div className="content max-h-screen bg-background flex flex-col items-center justify-center">
       <MemoizedGridPattern />
 
       <div className="flex flex-col items-center justify-center space-y-5">
@@ -56,9 +56,9 @@ function App() {
               Installing dependencies...
             </AnimatedSpan>
             <TerminalTyping className='text-typing'>_Olá,</TerminalTyping>
-            <AnimatedSpan className="text break-words whitespace-normal">✔ me chamo Matheus Marques e sou desenvolvedor frontend</AnimatedSpan>
+            <AnimatedSpan className="text break-words whitespace-normal">✔ me chamo Matheus Marques e sou desenvolvedor</AnimatedSpan>
 
-            <AnimatedSpan className="text break-words whitespace-normal">✔ transformar ideias em interfaces bonitas, rápidas e fáceis de usar.</AnimatedSpan>
+            <AnimatedSpan className="text break-words whitespace-normal">✔ transformo ideias em interfaces bonitas, rápidas e fáceis de usar.</AnimatedSpan>
 
             <AnimatedSpan className="text break-words whitespace-normal">✔ Unifico código e design para criar experiências que realmente fazem sentido para o usuário.</AnimatedSpan>
 
@@ -77,9 +77,9 @@ function App() {
           </Terminal>
         </div>
 
-        <div className="footer">
+        {/* <div className="footer">
           <p className="text-footer">desenvolvido por Matheus Marques</p>
-        </div>
+        </div> */}
       </div>
     </div>
   )
