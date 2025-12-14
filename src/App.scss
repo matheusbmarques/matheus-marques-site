@@ -138,6 +138,20 @@ $dark-primary-color: #4D4DFF;
   }
 }
 
+.catdriving {
+  display: flex;
+
+  a {
+    color: rgba(8, 109, 255, 1);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      background: rgba(8, 109, 255, 0.3);
+    }
+  }
+}
+
 @keyframes npmLayers {
   0%, 80%, 100% {
     opacity: 0.0;
